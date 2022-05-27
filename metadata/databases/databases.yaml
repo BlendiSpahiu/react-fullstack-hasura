@@ -1,0 +1,8 @@
+- name: Poster
+  kind: postgres
+  configuration:
+    connection_info:
+      use_prepared_statements: false
+      database_url: postgres://postgres:1234@host.docker.internal:5432/poster_local
+      isolation_level: read-committed
+  tables: "!include Poster/tables/tables.yaml"
