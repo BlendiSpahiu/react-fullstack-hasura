@@ -1,0 +1,15 @@
+version: "3.6"
+services:
+    graphql-engine:
+        container_name: blendspahiu
+        image: hasura/graphql-engine:v2.1.1
+        ports:
+            - "8080:8080"
+        restart: always
+        environment:
+            HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:1234@host.docker.internal:5432/poster_local
+            HASURA_GRAPHQL_ENABLE_CONSOLE: "false"
+            HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+            HASURA_GRAPHQL_ADMIN_SECRET: 'supersecretpassword'
+            HASURA_GRAPHQL_JWT_SECRET: '{"type":"HS256", "key": "WpjxaTVar48sWETdg5f3DSxucJv2NTYK"}'
+            HASURA_GRAPHQL_ACTIONS_ENDPOINT: http://host.docker.internal:5000

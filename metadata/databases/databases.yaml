@@ -1,8 +1,15 @@
-- name: Poster
+- name: default
   kind: postgres
   configuration:
     connection_info:
-      use_prepared_statements: false
-      database_url: postgres://postgres:1234@host.docker.internal:5432/poster_local
+      use_prepared_statements: true
+      database_url:
+        from_env: HASURA_GRAPHQL_DATABASE_URL
       isolation_level: read-committed
-  tables: "!include Poster/tables/tables.yaml"
+      pool_settings:
+        connection_lifetime: 600
+        retries: 1
+        idle_timeout: 180
+        max_connections: 50
+  tables: "!include default/tables/tables.yaml"
+  functions: "!include default/functions/functions.yaml"

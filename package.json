@@ -1,0 +1,20 @@
+{
+  "name": "react-fullstack-hasura",
+  "version": "1.0.0",
+  "description": "Fullstack app",
+  "main": "index.js",
+  "scripts": {
+    "start": "hasura console",
+    "migrate": "./scripts/hasura-update.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlendiSpahiu/react-fullstack-hasura.git"
+  },
+  "author": "Blendi Spahiu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlendiSpahiu/react-fullstack-hasura/issues"
+  },
+  "homepage": "https://github.com/BlendiSpahiu/react-fullstack-hasura#readme"
+}

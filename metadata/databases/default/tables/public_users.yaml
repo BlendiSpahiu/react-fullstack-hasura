@@ -1,0 +1,67 @@
+table:
+  schema: public
+  name: users
+array_relationships:
+  - name: posts
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: posts
+insert_permissions:
+  - role: anonymous
+    permission:
+      check: {}
+      columns:
+        - id
+        - name
+        - email
+        - password
+        - created_at
+        - updated_at
+      backend_only: false
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - created_at
+        - email
+        - id
+        - name
+        - password
+        - profile_picture
+        - role
+        - updated_at
+      backend_only: false
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - created_at
+        - email
+        - id
+        - name
+        - password
+        - profile_picture
+        - role
+        - updated_at
+      filter: {}
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - created_at
+        - email
+        - id
+        - name
+        - password
+        - profile_picture
+        - role
+        - updated_at
+      filter: {}
+      check: null
+delete_permissions:
+  - role: user
+    permission:
+      filter: {}

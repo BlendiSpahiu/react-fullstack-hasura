@@ -1,0 +1,49 @@
+table:
+  schema: public
+  name: authors
+object_relationships:
+  - name: post
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: posts
+        insertion_order: null
+        column_mapping:
+          id: id
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - id
+        - email
+        - name
+        - created_at
+        - updated_at
+      backend_only: false
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - email
+        - name
+        - created_at
+        - updated_at
+      filter: {}
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - email
+        - name
+        - created_at
+        - updated_at
+      filter: {}
+      check: null
+delete_permissions:
+  - role: user
+    permission:
+      filter: {}

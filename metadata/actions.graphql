@@ -1,0 +1,57 @@
+type Mutation {
+  change_password(
+    data: ChangePasswordInput
+  ): ChangePasswordResponse
+}
+
+type Mutation {
+  login(
+    data: LoginInput
+  ): LoginResponse
+}
+
+type Mutation {
+  register(
+    data: RegisterInput
+  ): RegisterResponse
+}
+
+input RegisterInput {
+  email: String!
+  name: String!
+  password: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input ChangePasswordInput {
+  userId: Int!
+  password: String!
+}
+
+type RegisterResponse {
+  token: String
+  statusCode: String!
+  statusIsOk: Boolean!
+  statusMessage: String!
+  statusPath: String!
+}
+
+type LoginResponse {
+  statusMessage: String!
+  statusCode: Int!
+  statusPath: String!
+  statusIsOk: Boolean
+  token: String!
+}
+
+type ChangePasswordResponse {
+  statusMessage: String!
+  statusPath: String!
+  statusIsOk: Boolean!
+  statusCode: Int!
+}
+

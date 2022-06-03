@@ -1,6 +1,31 @@
-actions: []
+actions:
+  - name: change_password
+    definition:
+      kind: synchronous
+      handler: http://host.docker.internal:5000/change-password
+    permissions:
+      - role: user
+  - name: login
+    definition:
+      kind: synchronous
+      handler: http://host.docker.internal:5000/login
+    permissions:
+      - role: user
+  - name: register
+    definition:
+      kind: synchronous
+      handler: http://host.docker.internal:5000/register
+    permissions:
+      - role: user
+    comment: register
 custom_types:
   enums: []
-  input_objects: []
-  objects: []
+  input_objects:
+    - name: RegisterInput
+    - name: LoginInput
+    - name: ChangePasswordInput
+  objects:
+    - name: RegisterResponse
+    - name: LoginResponse
+    - name: ChangePasswordResponse
   scalars: []
