@@ -35,6 +35,17 @@ insert_permissions:
         - updated_at
       backend_only: false
 select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - created_at
+        - email
+        - id
+        - name
+        - profile_picture
+        - role
+        - updated_at
+      filter: {}
   - role: user
     permission:
       columns:
