@@ -12,42 +12,42 @@ insert_permissions:
         user_id:
           _eq: x-hasura-user-id
       columns:
-        - content
-        - created_at
-        - description
         - id
-        - image_url
-        - published
-        - title
-        - updated_at
+        - status
         - user_id
+        - content
+        - description
+        - image_url
+        - title
+        - created_at
+        - updated_at
       backend_only: false
 select_permissions:
   - role: anonymous
     permission:
       columns:
-        - content
-        - created_at
-        - description
         - id
-        - image_url
-        - published
-        - title
-        - updated_at
+        - status
         - user_id
+        - content
+        - description
+        - image_url
+        - title
+        - created_at
+        - updated_at
       filter: {}
   - role: user
     permission:
       columns:
-        - content
-        - created_at
-        - description
         - id
-        - image_url
-        - published
-        - title
-        - updated_at
+        - status
         - user_id
+        - content
+        - description
+        - image_url
+        - title
+        - created_at
+        - updated_at
       filter:
         user_id:
           _eq: x-hasura-user-id
@@ -55,15 +55,15 @@ update_permissions:
   - role: user
     permission:
       columns:
-        - content
-        - created_at
-        - description
         - id
-        - image_url
-        - published
-        - title
-        - updated_at
+        - status
         - user_id
+        - content
+        - description
+        - image_url
+        - title
+        - created_at
+        - updated_at
       filter:
         user_id:
           _eq: x-hasura-user-id

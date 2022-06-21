@@ -10,20 +10,11 @@ array_relationships:
           schema: public
           name: posts
 insert_permissions:
-  - role: anonymous
-    permission:
-      check: {}
-      columns:
-        - id
-        - name
-        - email
-        - password
-        - created_at
-        - updated_at
-      backend_only: false
   - role: user
     permission:
-      check: {}
+      check:
+        id:
+          _eq: x-hasura-user-id
       columns:
         - created_at
         - email
@@ -49,15 +40,16 @@ select_permissions:
   - role: user
     permission:
       columns:
-        - created_at
-        - email
         - id
-        - name
-        - password
-        - profile_picture
         - role
+        - email
+        - name
+        - profile_picture
+        - created_at
         - updated_at
-      filter: {}
+      filter:
+        id:
+          _eq: x-hasura-user-id
 update_permissions:
   - role: user
     permission:
@@ -70,9 +62,13 @@ update_permissions:
         - profile_picture
         - role
         - updated_at
-      filter: {}
+      filter:
+        id:
+          _eq: x-hasura-user-id
       check: null
 delete_permissions:
   - role: user
     permission:
-      filter: {}
+      filter:
+        id:
+          _eq: x-hasura-user-id
