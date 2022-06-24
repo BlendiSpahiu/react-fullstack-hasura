@@ -12,58 +12,63 @@ insert_permissions:
         user_id:
           _eq: x-hasura-user-id
       columns:
-        - id
-        - status
-        - user_id
+        - category
         - content
-        - description
-        - image_url
-        - title
         - created_at
+        - description
+        - id
+        - image_url
+        - status
+        - title
         - updated_at
+        - user_id
       backend_only: false
 select_permissions:
   - role: anonymous
     permission:
       columns:
-        - id
-        - status
-        - user_id
+        - category
         - content
-        - description
-        - image_url
-        - title
         - created_at
+        - description
+        - id
+        - image_url
+        - status
+        - title
         - updated_at
+        - user_id
       filter: {}
   - role: user
     permission:
       columns:
-        - id
-        - status
-        - user_id
+        - category
         - content
-        - description
-        - image_url
-        - title
         - created_at
+        - description
+        - id
+        - image_url
+        - status
+        - title
         - updated_at
+        - user_id
       filter:
         user_id:
           _eq: x-hasura-user-id
+      allow_aggregations: true
 update_permissions:
   - role: user
     permission:
       columns:
-        - id
-        - status
-        - user_id
+        - category
         - content
-        - description
-        - image_url
-        - title
         - created_at
+        - description
+        - id
+        - image_url
+        - status
+        - title
         - updated_at
+        - user_id
       filter:
         user_id:
           _eq: x-hasura-user-id

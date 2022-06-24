@@ -1,14 +1,6 @@
 table:
   schema: public
-  name: users
-array_relationships:
-  - name: posts
-    using:
-      foreign_key_constraint_on:
-        column: user_id
-        table:
-          schema: public
-          name: posts
+  name: categories
 insert_permissions:
   - role: user
     permission:
@@ -16,52 +8,41 @@ insert_permissions:
         id:
           _eq: x-hasura-user-id
       columns:
-        - created_at
-        - email
         - id
+        - post_id
         - name
-        - password
-        - profile_picture
-        - role
+        - created_at
         - updated_at
       backend_only: false
 select_permissions:
   - role: anonymous
     permission:
       columns:
-        - created_at
-        - email
         - id
-        - name
-        - profile_picture
-        - role
+        - created_at
         - updated_at
+        - post_id
+        - name
       filter: {}
   - role: user
     permission:
       columns:
         - id
-        - role
-        - email
+        - post_id
         - name
-        - profile_picture
         - created_at
         - updated_at
       filter:
         id:
           _eq: x-hasura-user-id
-      allow_aggregations: true
 update_permissions:
   - role: user
     permission:
       columns:
-        - created_at
-        - email
         - id
+        - post_id
         - name
-        - password
-        - profile_picture
-        - role
+        - created_at
         - updated_at
       filter:
         id:
